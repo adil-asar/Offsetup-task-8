@@ -1,37 +1,6 @@
-// addUser.js
+import React from 'react'
 
-
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-const Adduser = () => {
-  const [input, setinput] = useState({ name: "", address: "", mobile: "" });
-  const API_URL = "https://656dc64dbcc5618d3c23ec70.mockapi.io/v1/users";
-
-  const navigate = useNavigate();
-  const input_value = (event) => {
-    const { name, value } = event.target;
-
-    setinput((values) => ({
-      ...values,
-      [name]: value,
-    }));
-  };
-
-  const handle_submit = async (event) => {
-    event.preventDefault();
-
-    try {
-      await axios.post(API_URL, input);
-      alert("Data sent successfully");
-      setinput({ name: "", address: "", mobile: "" });
-      navigate("/view");
-    } catch (error) {
-      console.error("Error adding user", error);
-      alert("Error sending data. Please try again later.");
-    }
-  };
-
+const Update = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen bg-slate-700">
       <h1 className="text-3xl text-center text-yellow-600">Add User</h1>
@@ -74,7 +43,9 @@ const Adduser = () => {
         </form>
       </div>
     </div>
-  );
-};
+      
+    
+  )
+}
 
-export default Adduser;
+export default Update
