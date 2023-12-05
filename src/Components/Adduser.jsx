@@ -1,15 +1,17 @@
-
-import * as yup from "yup"; 
+import * as yup from "yup";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-// form validation 
+// form validation
 
 const validationSchema = yup.object().shape({
   name: yup.string().required("Name is required"),
   address: yup.string().required("Address is required"),
-  mobile: yup.string().required("Mobile is required").matches(/^\d{10}$/, "Invalid mobile number"),
+  mobile: yup
+    .string()
+    .required("Mobile is required")
+    .matches(/^\d{10}$/, "Mobile No should be 10 digits"),
 });
 
 const Adduser = () => {
@@ -30,13 +32,14 @@ const Adduser = () => {
     validationSchema
       .validateAt(name, { [name]: value })
       .then(() => setErrors((prevErrors) => ({ ...prevErrors, [name]: "" })))
-      .catch((error) => setErrors((prevErrors) => ({ ...prevErrors, [name]: error.message })));
-
+      .catch((error) =>
+        setErrors((prevErrors) => ({ ...prevErrors, [name]: error.message }))
+      );
   };
 
   const go_back = () => {
-    navigate('/')
-  }
+    navigate("/");
+  };
 
   const handle_submit = async (event) => {
     event.preventDefault();
@@ -49,8 +52,6 @@ const Adduser = () => {
       setinput({ name: "", address: "", mobile: "" });
       navigate("/view");
     } catch (error) {
-      console.error("Error adding user", error);
-      alert("Error sending data. Please try again later.");
       if (error.name === "ValidationError") {
         // Handle validation errors
         const fieldErrors = {};
@@ -80,7 +81,9 @@ const Adduser = () => {
             value={input.name}
             onChange={input_value}
           />
-           {errors.name && <div className="mb-2 text-red-500">{errors.name}</div>}
+          {errors.name && (
+            <div className="mb-2 text-red-500">{errors.name}</div>
+          )}
           <input
             type="text"
             placeholder="Location "
@@ -90,7 +93,9 @@ const Adduser = () => {
             value={input.address}
             onChange={input_value}
           />
- {errors.address && <div className="mb-2 text-red-500">{errors.address}</div>}
+          {errors.address && (
+            <div className="mb-2 text-red-500">{errors.address}</div>
+          )}
           <input
             placeholder="Enter Mobile Number"
             autoComplete="new-password"
@@ -100,18 +105,20 @@ const Adduser = () => {
             value={input.mobile}
             onChange={input_value}
           />
-           {errors.mobile && <div className="mb-2 text-red-500">{errors.mobile}</div>}
+          {errors.mobile && (
+            <div className="mb-2 text-red-500">{errors.mobile}</div>
+          )}
 
           <div className="flex justify-around w-full mt-3">
           <button 
             onClick={handle_submit}
-            className="w-1/3 px-8 py-2 mt-3 bg-white border border-white rounded text-slate-900 hover:border-transparent"
+            className="w-1/3 px-8 py-2 mt-3 bg-white border border-white rounded text-slate-900 hover:text-white hover:border-transparent"
           >
             Add New
           </button>
           <button 
             onClick={go_back}
-            className="w-1/3 px-8 py-2 mt-3 bg-white border border-white rounded text-slate-900 hover:border-transparent"
+            className="w-1/3 px-8 py-2 mt-3 bg-white border border-white rounded text-slate-900 hover:text-white hover:border-transparent"
           >
           Go Back
           </button>
