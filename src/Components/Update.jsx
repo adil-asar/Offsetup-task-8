@@ -20,18 +20,15 @@ const Update = ({fill ,setfill}) => {
 
       const updateData = async (event) => {
         event.preventDefault();
-      console.log(
-        fill
-      )
-        // try {
-        //   const response = await axios.put(`${API_URL}/${fill.id}`, fill);
-        //   console.log('API Response:', response.data); // Log the response
-        //   alert('Updated successfully');
-        //   navigate('/view');
-        // } catch (error) {
-        //   console.error('Error updating user:', error);
-        //   // Handle the error (e.g., show an error message)
-        // }
+        try {
+          const response = await axios.put(`${API_URL}/${fill.id}`, fill);
+          console.log('API Response:', response.data); // Log the response
+          alert('Updated successfully');
+          navigate('/view');
+        } catch (error) {
+          console.error('Error updating user:', error);
+          // Handle the error (e.g., show an error message)
+        }
       };
       
       
@@ -40,7 +37,7 @@ const Update = ({fill ,setfill}) => {
     <div className="flex flex-col items-center justify-center w-full h-screen bg-slate-700">
       <h1 className="text-3xl text-center text-yellow-600">Update User</h1>
       <div className="flex flex-col w-1/2 p-8 mt-5 rounded-lg bg-slate-500">
-        <form onSubmit={(e)=>Data_Update(e)}>
+        <form onSubmit={(e)=>updateData(e)}>
           <input
             type="text"
             placeholder="name"
