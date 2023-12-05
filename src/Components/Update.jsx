@@ -18,21 +18,22 @@ const Update = ({fill ,setfill}) => {
       
       }
 
-      const  Data_Update= async (event)=>{
-        try {
-            await axios.put(`https://656dc64dbcc5618d3c23ec70.mockapi.io/v1/users/${fill.id}`, fill);
-            alert("updated");
-            event.preventDefault();
-            console.log(fill);
-            navigate('/view');
-          } catch (error) {
-            console.error("Error updating user:", error);
-            // Handle the error (e.g., show an error message)
-          }
-          
-       
-        
-      }
+      const updateData = async (event) => {
+        event.preventDefault();
+      console.log(
+        fill
+      )
+        // try {
+        //   const response = await axios.put(`${API_URL}/${fill.id}`, fill);
+        //   console.log('API Response:', response.data); // Log the response
+        //   alert('Updated successfully');
+        //   navigate('/view');
+        // } catch (error) {
+        //   console.error('Error updating user:', error);
+        //   // Handle the error (e.g., show an error message)
+        // }
+      };
+      
       
 
   return (
