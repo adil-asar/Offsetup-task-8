@@ -1,8 +1,10 @@
+// viewall.js
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Viewall = () => {
+const Viewall = ({ data, setdata, fill, setfill }) => {
   const API_URL = "https://656dc64dbcc5618d3c23ec70.mockapi.io/v1/users";
 
   const navigate = useNavigate();
@@ -11,8 +13,11 @@ const Viewall = () => {
   };
 
   //   usestate for storing api data
-  const [data, setdata] = useState([]);
-
+  // const [data, setdata] = useState([]);
+  const Filled = (user) => {
+    setfill(user);
+    navigate("/update");
+  };
   //   user deletion function
   useEffect(() => {
     const fetchDataWithDelay = async () => {
@@ -25,7 +30,7 @@ const Viewall = () => {
       }
     };
 
-    fetchDataWithDelay(); // Adjust the delay as needed
+    fetchDataWithDelay();
   }, []);
 
   const deleteUser = (id) => {
@@ -67,7 +72,10 @@ const Viewall = () => {
                     {item.mobile}
                   </td>
                   <td className="px-4 py-2 text-center border-b">
-                    <button className="px-2 py-1 text-white bg-blue-500 rounded">
+                    <button
+                      onClick={() => Filled(item)}
+                      className="px-2 py-1 text-white bg-blue-500 rounded"
+                    >
                       Edit
                     </button>
                     <button
