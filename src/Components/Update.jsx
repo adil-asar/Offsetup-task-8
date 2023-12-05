@@ -1,43 +1,37 @@
-import React from 'react'
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-const Update = ({fill ,setfill}) => {
+const Update = ({ fill, setfill }) => {
+  const API_URL = "https://656dc64dbcc5618d3c23ec70.mockapi.io/v1/users";
 
-    const API_URL = "https://656dc64dbcc5618d3c23ec70.mockapi.io/v1/users";
+  const navigate = useNavigate();
+  const fill_value = (event) => {
+    const { name, value } = event.target;
 
-    const navigate = useNavigate();
-    const  fill_value=(event)=>{
-        const {name,value} = event.target;
+    setfill((values) => ({
+      ...values,
+      [name]: value,
+    }));
+  };
 
-        
-      
-        setfill((values) => ({
-              ...values,
-              [name]: value,
-          }));
-      
-      }
-
-      const updateData = async (event) => {
-        event.preventDefault();
-        try {
-          const response = await axios.put(`${API_URL}/${fill.id}`, fill);
-          console.log('API Response:', response.data); // Log the response
-          alert('Updated successfully');
-          navigate('/view');
-        } catch (error) {
-          console.error('Error updating user:', error);
-          // Handle the error (e.g., show an error message)
-        }
-      };
-      
-      
+  const updateData = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.put(`${API_URL}/${fill.id}`, fill);
+      console.log("API Response:", response.data); // Log the response
+      alert("Updated successfully");
+      navigate("/view");
+    } catch (error) {
+      console.error("Error updating user:", error);
+      // Handle the error (e.g., show an error message)
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen bg-slate-700">
       <h1 className="text-3xl text-center text-yellow-600">Update User</h1>
       <div className="flex flex-col w-1/2 p-8 mt-5 rounded-lg bg-slate-500">
-        <form onSubmit={(e)=>updateData(e)}>
+        <form onSubmit={(e) => updateData(e)}>
           <input
             type="text"
             placeholder="name"
@@ -45,7 +39,7 @@ const Update = ({fill ,setfill}) => {
             autoComplete="off"
             className="w-full p-3 mb-5 text-yellow-600 placeholder-yellow-600 bg-transparent border-2 border-yellow-600 rounded-md outline-none"
             name="name"
-value={fill.name}
+            value={fill.name}
           />
           <input
             type="text"
@@ -54,7 +48,7 @@ value={fill.name}
             autoComplete=""
             className="w-full p-3 mb-5 text-yellow-600 placeholder-yellow-600 bg-transparent border-2 border-yellow-600 rounded-md outline-none"
             name="address"
-       value={fill.address}
+            value={fill.address}
           />
 
           <input
@@ -64,20 +58,15 @@ value={fill.name}
             className="w-full p-3 mb-5 text-yellow-600 placeholder-yellow-600 bg-transparent border-2 border-yellow-600 rounded-md outline-none"
             type="text"
             name="mobile"
-           value={fill.mobile}
+            value={fill.mobile}
           />
-          <button
-           
-            className="w-1/2 px-8 py-2 text-white bg-yellow-600 border border-yellow-600 rounded hover:text-white hover:border-transparent"
-          >
+          <button className="w-1/2 px-8 py-2 text-white bg-yellow-600 border border-yellow-600 rounded hover:text-white hover:border-transparent">
             Update User
           </button>
         </form>
       </div>
     </div>
-      
-    
-  )
-}
+  );
+};
 
-export default Update
+export default Update;
