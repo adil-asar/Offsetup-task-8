@@ -15,12 +15,13 @@ const Home = () => {
 
       <div className="flex-wrap items-center justify-around w-full mx-4 mt-8 text-center sm:w-1/2 sm:flex text">
         <button
-         onClick={()=>jump_to('/add')}
-          className="px-8 py-2 mb-4 text-yellow-600 bg-transparent border border-yellow-600 rounded hover:bg-yellow-600 sm:mb-0 hover:text-white hover:border-transparent" >
+          onClick={() => jump_to("/add")}
+          className="px-8 py-2 mb-4 text-yellow-600 bg-transparent border border-yellow-600 rounded hover:bg-yellow-600 sm:mb-0 hover:text-white hover:border-transparent"
+        >
           Add User
         </button>
         <button
-        onClick={()=>jump_to('/view')}
+          onClick={() => jump_to("/view")}
           className="px-8 py-2 mx-4 text-yellow-600 bg-transparent border border-yellow-600 rounded hover:bg-yellow-600 hover:text-white hover:border-transparent"
         >
           View All
