@@ -105,13 +105,13 @@ const Adduser = () => {
           <div className="flex justify-around w-full mt-3">
           <button 
             onClick={handle_submit}
-            className="w-1/3 px-8 py-2 mt-3 bg-white border border-white rounded text-slate-900 hover:text-white hover:border-transparent"
+            className="w-1/3 px-8 py-2 mt-3 bg-white border border-white rounded text-slate-900 hover:border-transparent"
           >
             Add New
           </button>
           <button 
             onClick={go_back}
-            className="w-1/3 px-8 py-2 mt-3 bg-white border border-white rounded text-slate-900 hover:text-white hover:border-transparent"
+            className="w-1/3 px-8 py-2 mt-3 bg-white border border-white rounded text-slate-900 hover:border-transparent"
           >
           Go Back
           </button>

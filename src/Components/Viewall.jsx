@@ -43,7 +43,7 @@ const Viewall = ({ data, setdata, fill, setfill }) => {
     <div className="flex flex-col items-center justify-center w-full h-screen bg-slate-700">
       <button
         onClick={() => jump_to("/")}
-        className="px-6 py-2 mb-8 text-yellow-600 bg-transparent border border-yellow-600 rounded-md"
+        className="px-6 py-2 mb-8 text-white bg-transparent border border-white rounded-md"
       >
         Go Back
       </button>
