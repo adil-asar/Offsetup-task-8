@@ -68,9 +68,9 @@ const Adduser = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen bg-slate-700">
+    <div className="flex flex-col items-center justify-center w-full h-screen p-3 bg-slate-700">
       <h1 className="text-3xl text-center text-white">Add User</h1>
-      <div className="flex flex-col w-1/2 p-8 mt-5 rounded-lg bg-slate-500">
+      <div className="flex flex-col p-5 mt-5 rounded-lg sm:w-full md:w-1/2 bg-slate-500">
         <form>
           <input
             type="text"
@@ -109,20 +109,20 @@ const Adduser = () => {
             <div className="mb-2 text-red-500">{errors.mobile}</div>
           )}
 
-          <div className="flex justify-around w-full mt-3">
-          <button 
-            onClick={handle_submit}
-            className="w-1/3 px-8 py-2 mt-3 bg-white border border-white rounded text-slate-900 hover:border-transparent"
-          >
-            Add New
-          </button>
-          <button 
-            onClick={go_back}
-            className="w-1/3 px-8 py-2 mt-3 bg-white border border-white rounded text-slate-900 hover:border-transparent"
-          >
-          Go Back
-          </button>
-          </div>
+<div className="flex flex-col justify-between w-full mt-3 sm:flex-row">
+      <button
+        onClick={handle_submit}
+        className="w-full px-8 py-2 mb-3 bg-white border border-white rounded sm:mb-0 sm:w-1/3 text-slate-900 hover:border-transparent"
+      >
+        Add New
+      </button>
+      <button
+        onClick={go_back}
+        className="w-full px-8 py-2 bg-white border border-white rounded sm:w-1/3 sm:mt-0 text-slate-900 hover:border-transparent"
+      >
+        Go Back
+      </button>
+    </div>
         </form>
       </div>
     </div>

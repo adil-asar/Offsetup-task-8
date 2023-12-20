@@ -58,9 +58,9 @@ const Update = ({ fill, setfill }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen bg-slate-700">
+    <div className="flex flex-col items-center justify-center w-full h-screen p-3 bg-slate-700">
       <h1 className="text-3xl text-center text-white">Update User</h1>
-      <div className="flex flex-col w-1/2 p-8 mt-5 rounded-lg bg-slate-500">
+      <div className="flex flex-col p-8 mt-5 rounded-lg sm:w-full md:w-1/2 bg-slate-500">
         <form className="text-center" onSubmit={(e) => updateData(e)}>
           <input
             type="text"
